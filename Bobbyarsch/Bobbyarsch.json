@@ -1,0 +1,28 @@
+{
+    "parameterSets": {
+        "Peter": {
+            "3DPRINT_COLOR": "[1, 0, 0]",
+            "BETTER_VISUALIZE": "true",
+            "CIRCLE_RADIUS": "317",
+            "GLOBAL_CLEARANCE": "0",
+            "GLOBAL_EN_SMOOTH": "false",
+            "GLOBAL_LOGO": "true",
+            "GLOBAL_MM_ALU_LENGTH": "200",
+            "GLOBAL_SMOOTH": "2",
+            "GLOBAL_SMOOTHNESS": "16",
+            "MM_BELT_HEIGHT": "30",
+            "MM_BETWEEN_ALUPROFILES": "140",
+            "MM_DEPTH_BACK": "30",
+            "MM_DEPTH_FRONT": "32",
+            "MM_DEPTH_HEIGHT": "10",
+            "MM_HEIGHT": "82",
+            "MM_HEIGHT_ALU": "10",
+            "MM_LEFT_ALU": "20",
+            "MM_RIGHT_ALU": "20",
+            "MM_THICKNESS": "7",
+            "MM_WIDTH": "180"
+        }
+    },
+    "parameterSets": "",
+    "fileFormatVersion": "1"
+}
