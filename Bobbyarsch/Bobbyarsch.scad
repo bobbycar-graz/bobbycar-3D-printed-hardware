@@ -153,7 +153,7 @@ module screw_plate() {
         {
             intersection() {
                 translate([width/2, CIRCLE_RADIUS, 0]) {
-                    cylinder(h=MM_DEPTH_HEIGHT, r=CIRCLE_RADIUS, $fs=5, $fa=5);
+                    cylinder(h=MM_DEPTH_HEIGHT, r=CIRCLE_RADIUS, $fs=5, $fa=5, $fn = 1000);
                 }
                 cube([width,MM_DEPTH_FRONT,MM_DEPTH_HEIGHT]);
             }
