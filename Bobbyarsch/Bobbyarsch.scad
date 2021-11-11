@@ -44,6 +44,8 @@ BETTER_VISUALIZE = true;
 // Color of the 3d print
 3DPRINT_COLOR = [1,1,1]; //[0:0.1:1]
 
+COLOR_1 = true;
+COLOR_2 = false;
 
 // Smooth
 module smoother(){
@@ -165,10 +167,29 @@ module screw_plate() {
     }
 }
 
+module printable_inner(){
+    union(){
+        between_alu();
+        vertical_plate();
+        screw_plate();
+    }
+}
 module printable() {
-    between_alu();
-    vertical_plate();
-    screw_plate();
+    if(COLOR_2 && !COLOR_1){
+        intersection(){
+            printable_inner();
+            logo();
+        }
+    }
+    else{
+        difference(){
+            printable_inner();
+            if(COLOR_1 != COLOR_2){
+                logo();
+            }
+        }
+    }
+    
 }
 
 // Now render the thing
@@ -178,4 +199,9 @@ color(3DPRINT_COLOR) {
     } else {
         printable();
     }
+}
+module logo(){
+    translate([(MM_LEFT_ALU + MM_RIGHT_ALU + MM_BETWEEN_ALUPROFILES)/2,0,15])
+    rotate([90,0,0])
+    scale([0.2,0.2,1])linear_extrude(100)import("bobby car.svg",center=true);
 }
