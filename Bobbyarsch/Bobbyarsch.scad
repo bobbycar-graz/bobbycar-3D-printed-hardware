@@ -174,16 +174,25 @@ module printable_inner(){
         screw_plate();
     }
 }
+module printable_inner_smoothed(){
+    if (GLOBAL_EN_SMOOTH) {
+        smooth()printable_inner();
+    } else {
+        printable_inner();
+    }
+}
+
+
 module printable() {
     if(COLOR_2 && !COLOR_1){
         intersection(){
-            printable_inner();
+            printable_inner_smoothed();
             logo();
         }
     }
     else{
         difference(){
-            printable_inner();
+            printable_inner_smoothed();
             if(COLOR_1 != COLOR_2){
                 logo();
             }
@@ -193,15 +202,18 @@ module printable() {
 }
 
 // Now render the thing
+
+
+
+
 color(3DPRINT_COLOR) {
-    if (GLOBAL_EN_SMOOTH) {
-        smooth() printable();
-    } else {
-        printable();
-    }
+    printable();
 }
+
+
+
 module logo(){
-    translate([(MM_LEFT_ALU + MM_RIGHT_ALU + MM_BETWEEN_ALUPROFILES)/2,0,15])
+    translate([(MM_LEFT_ALU + MM_RIGHT_ALU + MM_BETWEEN_ALUPROFILES)/2,0,5])
     rotate([90,0,0])
     scale([0.2,0.2,1])linear_extrude(100)import("bobby car.svg",center=true);
 }
